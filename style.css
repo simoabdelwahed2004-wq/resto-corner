@@ -297,3 +297,73 @@ footer {
 .cta-button:hover {
   background: #e65c00;
 }
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  
+  /* Header Adjustments */
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  header h1 {
+    margin-right: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+  }
+
+  header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  header nav a {
+    margin: 0 5px;
+    font-size: 0.9em;
+  }
+
+  header div[style="margin-left:auto;"] {
+    margin-left: 0 !important;
+    margin-top: 5px;
+  }
+
+  /* Hero Section */
+  .hero-content h1 {
+    font-size: 2em;
+  }
+
+  .hero-content p {
+    font-size: 1.2em;
+  }
+
+  /* Contact Page */
+  .contact-wrapper {
+    flex-direction: column;
+  }
+
+  .contact-wrapper iframe,
+  .contact-form {
+    width: 100%;
+    flex: none;
+  }
+
+  /* General Adjustments */
+  .menu-grid {
+    grid-template-columns: 1fr; /* Single column for very small screens if needed, otherwise auto-fit works */
+  }
+
+  section {
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
