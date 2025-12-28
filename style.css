@@ -303,36 +303,103 @@ footer {
 
   /* Header Adjustments */
   header {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
   }
 
   header h1 {
-    margin-right: 0;
-    margin-bottom: 10px;
     font-size: 1.5em;
+    /* Smaller logo text */
+    margin: 0;
+  }
+
+  .menu-toggle {
+    display: block !important;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: white;
   }
 
   header nav {
+    display: none;
+    /* Hidden by default */
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 15px;
+    background: rgba(0, 0, 0, 0.9);
+    /* Dark background for menu */
+    border-radius: 10px;
+    padding: 10px;
+    order: 3;
+    /* Ensure it appears after logo and toggle */
+  }
+
+  header nav.active {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    /* Show when toggled */
   }
 
   header nav a {
-    margin: 0 5px;
-    font-size: 0.9em;
+    display: block;
+    padding: 15px;
+    font-size: 1.1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
+  header nav a:last-child {
+    border-bottom: none;
+  }
+
+  /* Language buttons on mobile */
   header div[style="margin-left:auto;"] {
     margin-left: 0 !important;
-    margin-top: 5px;
+    /* Optional: Move into nav or keep next to toggle if space permits? 
+       For simplicity, let's just make it float right or align with toggle. */
+    display: none;
+    /* Let's hide lang switcher on mobile top line for cleaner look? 
+                      OR move it inside the NAV. */
   }
 
-  /* Hero Section */
+  /* Alternative for Lang buttons: if we want to keep them visible: */
+  /* 
+  header div[style="margin-left:auto;"] {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    z-index: 1001; 
+  }
+  */
+  /* Better yet: Allow user to switch lang inside the menu? 
+     For now, let's keep them hidden to avoid clutter, 
+     OR stack them at the bottom of the nav via JS append? 
+     
+     Actually, let's just show them in the flex row if possible, 
+     but "friendly" usually means less clutter. 
+     I will HIDE them for now on mobile unless requested, 
+     or position them absolutely. 
+     
+     Let's position them next to the hamburger? 
+  */
+}
+
+/* Ensure Toggle is hidden on Desktop */
+.menu-toggle {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+
+  /* Restoring Desktop Layout explicitly if needed */
+  header nav {
+    display: flex !important;
+  }
+}
+
+/* Hero Section Mobile */
+@media screen and (max-width: 768px) {
   .hero-content h1 {
     font-size: 2em;
   }
@@ -341,7 +408,7 @@ footer {
     font-size: 1.2em;
   }
 
-  /* Contact Page */
+  /* Contact Page Mobile */
   .contact-wrapper {
     flex-direction: column;
   }
@@ -352,10 +419,9 @@ footer {
     flex: none;
   }
 
-  /* General Adjustments */
+  /* General Grid */
   .menu-grid {
     grid-template-columns: 1fr;
-    /* Single column for very small screens if needed, otherwise auto-fit works */
   }
 
   section {
