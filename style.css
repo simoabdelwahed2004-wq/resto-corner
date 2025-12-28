@@ -5,7 +5,7 @@
   font-family: Arial, sans-serif;
 }
 
-/* Video Background Styles */
+/* Video Background  */
 .video-bg {
   position: fixed;
   top: 0;
@@ -300,7 +300,7 @@ footer {
 
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
-  
+
   /* Header Adjustments */
   header {
     flex-direction: column;
@@ -354,7 +354,8 @@ footer {
 
   /* General Adjustments */
   .menu-grid {
-    grid-template-columns: 1fr; /* Single column for very small screens if needed, otherwise auto-fit works */
+    grid-template-columns: 1fr;
+    /* Single column for very small screens if needed, otherwise auto-fit works */
   }
 
   section {
